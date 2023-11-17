@@ -1,0 +1,37 @@
+SIM Process
+1. After receving update on SIM upload, know the numbers to upload, MVNO and 1st SIM number
+2. Prepare a encrypted file that has (1st_SIM, 1st_IMSI),(last_SIM, last_IMSI) 
+3. Confirm with the customer in which SFTP path the file should be:
+		If Olimpo - Thales path
+		else G+D Path
+4. Once output file is recevied check for the SIM and IMSI in BSSDB, MSGDB, PCRFDB, HLRDB AND HSSDB, Its shouldn't show any result or the count must be zero.
+5. Prepare the input files for each UI seperately.
+	BSSUI  - 1 file
+	HLRUI  - 2 files
+	HSSUI  - 2 files
+	PCRFUI - 1 file
+	MSGUI  - 2 files
+
+Formats will be in its' respective UIs
+MSISDN, Barcode - We need to randomly select
+KIKEYINDEX and OPINDEX from respective UIs
+
+BSSUI - Once uploaded, need to approve 
+For uploading - Card lifecycle management > Inventory Upload
+For Approving - Card lifecycle management > Inventory Approve
+
+HLRUI - HLR > Subscriber Management > Authentication Center
+		HLR > Subscriber Management > Provision/Modify GPRS
+		
+HSSUI - HLR > Subscriber Management > Authentication Center 		
+		HLR > Subscriber Management > Bulk Subscriber Creation 
+		
+PCRFUI - Subscriber Management > Bulk upload
+
+MSGUI - Media Management > Subscriber upload
+		SMSC Management > N/W MSISDN Range > Upload
+		
+
+After Uploading, Extract the SIM details from BSSUI and check in all DB whether it is uploaded properly or not
+
+
